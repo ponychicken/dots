@@ -21,20 +21,6 @@ echo "This script will make your Mac awesome"
 ###############################################################################
 
 echo ""
-echo "Hide the Time Machine, Volume, User, and Bluetooth icons"
-for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
-  defaults write "${domain}" dontAutoLoad -array \
-    "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
-    "/System/Library/CoreServices/Menu Extras/Volume.menu" \
-    "/System/Library/CoreServices/Menu Extras/User.menu"
-done
-defaults write com.apple.systemuiserver menuExtras -array \
-  "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
-  "/System/Library/CoreServices/Menu Extras/AirPort.menu" \
-  "/System/Library/CoreServices/Menu Extras/Battery.menu" \
-  "/System/Library/CoreServices/Menu Extras/Clock.menu"
-
-echo ""
 echo "Disabling OS X Gate Keeper"
 echo "(You'll be able to install any app you want from here on, not just Mac App Store apps)"
 sudo spctl --master-disable
@@ -77,10 +63,6 @@ echo "Reveal IP address, hostname, OS version, etc. when clicking the clock in t
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
 echo ""
-echo "Never go into computer sleep mode"
-systemsetup -setcomputersleep Off > /dev/null
-
-echo ""
 echo "Check for software updates daily, not just once per week"
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
@@ -103,21 +85,8 @@ echo "Enabling full keyboard access for all controls (e.g. enable Tab in modal d
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 echo ""
-echo "Disabling press-and-hold for keys in favor of a key repeat"
-defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
-
-echo ""
-echo "Setting a blazingly fast keyboard repeat rate (ain't nobody got time fo special chars while coding!)"
-defaults write NSGlobalDomain KeyRepeat -int 0
-
-echo ""
 echo "Disabling auto-correct"
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
-
-echo ""
-echo "Setting trackpad & mouse speed to a reasonable number"
-defaults write -g com.apple.trackpad.scaling 2
-defaults write -g com.apple.mouse.scaling 2.5
 
 echo ""
 echo "Turn off keyboard illumination when computer is not used for 5 minutes"
@@ -161,10 +130,6 @@ echo "Allowing text selection in Quick Look/Preview in Finder by default"
 defaults write com.apple.finder QLEnableTextSelection -bool true
 
 echo ""
-echo "Displaying full POSIX path as Finder window title"
-defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
-
-echo ""
 echo "Disabling the warning when changing a file extension"
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
@@ -181,12 +146,6 @@ echo "Disabling disk image verification"
 defaults write com.apple.frameworks.diskimages skip-verify -bool true
 defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
 defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
-
-echo ""
-echo "Enabling snap-to-grid for icons on the desktop and in other icon views"
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 
 
 ###############################################################################
@@ -217,14 +176,6 @@ defaults write com.apple.dock autohide-time-modifier -float 0
 ###############################################################################
 # Safari & WebKit
 ###############################################################################
-
-echo ""
-echo "Hiding Safari's bookmarks bar by default"
-defaults write com.apple.Safari ShowFavoritesBar -bool false
-
-echo ""
-echo "Hiding Safari's sidebar in Top Sites"
-defaults write com.apple.Safari ShowSidebarInTopSites -bool false
 
 echo ""
 echo "Disabling Safari's thumbnail cache for History and Top Sites"
@@ -376,6 +327,10 @@ echo "Disable hibernation (speeds up entering sleep mode)"
 sudo pmset -a hibernatemode 0
 
 echo ""
+echo "Disable ui sounds"
+defaults write com.apple.systemsound com.apple.sound.beep.volume -float 0
+
+echo ""
 echo "Remove the sleep image file to save disk space"
 sudo rm /private/var/vm/sleepimage
 echo "Creating a zero-byte file instead"
@@ -393,13 +348,16 @@ echo "Speeding up wake from sleep to 24 hours from an hour"
 sudo pmset -a standbydelay 86400
 
 echo ""
-echo "Disable computer sleep and stop the display from shutting off"
-sudo pmset -a sleep 0
-sudo pmset -a displaysleep 0
-
-echo ""
 echo "Disable annoying backswipe in Chrome"
 defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
+
+echo ""
+echo "Disable dock bounce"
+defaults write com.apple.dock no-bouncing -bool TRUE
+
+echo ""
+echo "Hide login times in terminal for speedup"
+touch .hushlogin
 
 ###############################################################################
 # Kill affected applications
