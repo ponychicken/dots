@@ -7,78 +7,60 @@ set -eu
 
 # Apps
 apps=(
-  shimo
-  1password
-  alfred
-  dropbox
-  google-chrome
-  qlcolorcode
-  screenflick
-  slack
-  transmit
-  appcleaner
-  firefox
-  hazel
-  qlmarkdown
-  seil
-  spotify
-  vagrant
-  arq
-  flash
-  iterm2
-  qlprettypatch
-  shiori
-  sublime-text3
-  virtualbox
   atom
+  calibre
+  dropbox
+  evernote
+  firefox
+  flash
   flux
+  free-ruler  
+  google-chrome
+  hexfiend
+  illustrator
+  imagealpha
+  imageoptim
+  indesign
+  iterm2
+  karabiner
   mailbox
+  max
+  mplayerx
+  onepassword
+  photoshop
+  popcorn-time
+  qlcolorcode
+  qlmarkdown
+  qlprettypatch
   qlstephen
-  sketch
-  tower
-  vlc
-  cloudup
-  nvalt
   quicklook-json
+  scroll-reverser
   skype
+  spotify
+  sublime-text3
+  the-unarchiver
+  tower
   transmission
-  apikitchen
-  mamp
-)
-
-# fonts
-fonts=(
-  font-m-plus
-  font-clear-sans
-  font-roboto
+  transmit
+  trickster
+  trim-enabler
+  vlc
 )
 
 # Atom packages
 atom=(
-  advanced-railscasts-syntax
   atom-beautify
   cmd-9
   color-picker
-  css-comb
-  docblockr
-  easy-motion
-  editor-stats
-  emmet
-  fancy-new-file
   file-icons
-  git-history
   highlight-selected
   image-view
   inc-dec-value
-  key-peek
   language-jade
   linter
-  markdown-preview
-  merge-conflicts
-  neutron-ui
-  npm-install
+  linter-jsxhint
   react
-  vim-mode
+  tabs-to-spaces
   zentabs
 )
 
@@ -98,29 +80,23 @@ main() {
 
   # Install homebrew-cask
   echo "installing cask..."
-  brew tap phinze/homebrew-cask
-  brew install brew-cask
-
-  # Tap alternative versions
-  brew tap caskroom/versions
-
-  # Tap the fonts
-  brew tap caskroom/fonts
+  # Cask
+  brew tap ponychicken/homebrew-customcask 
+  # Adobe 
+  brew tap ponychicken/homebrew-adobe-cc
+  # Popcorn
+  brew tap ponychicken/homebrew-custom
+  brew install brew-cask --HEAD
 
   # install apps
   echo "installing apps..."
   brew cask install --appdir=$appdir ${apps[@]}
-
-  # install fonts
-  echo "installing fonts..."
-  brew cask install ${fonts[@]}
 
   # install atom plugins
   echo "installing atom plugins..."
   apm install ${atom[@]}
 
   # link with alfred
-  alfred
   cleanup
 }
 
@@ -129,10 +105,6 @@ homebrew() {
     echo "Installing homebrew..."
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
-}
-
-alfred() {
-  brew cask alfred link
 }
 
 cleanup() {
