@@ -28,7 +28,6 @@ apps=(
   mplayerx
   onepassword
   photoshop
-  popcorn-time
   qlcolorcode
   qlmarkdown
   qlprettypatch
@@ -85,7 +84,7 @@ main() {
   # Adobe 
   brew tap ponychicken/homebrew-adobe-cc
   # Popcorn
-  brew tap ponychicken/homebrew-custom
+  #brew tap ponychicken/homebrew-custom
   brew install brew-cask --HEAD
 
   # install apps
