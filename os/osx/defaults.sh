@@ -369,8 +369,10 @@ echo "Disable dock bounce"
 defaults write com.apple.dock no-bouncing -bool TRUE
 
 ###############################################################################
-# Kill affected applications
+# Hide login times in terminal for speedup
 ###############################################################################
+touch .hushlogin
+
 
 for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
 	"Dock" "Finder" "Google Chrome" "Google Chrome Canary" "Mail" "Messages" \
