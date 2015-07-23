@@ -24,6 +24,7 @@ brew install homebrew/dupes/grep
 # Install other useful binaries
 binaries=(
   graphicsmagick
+  ssh-copy-id
   ffmpeg
   python
   trash
