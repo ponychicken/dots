@@ -7,6 +7,7 @@ set -eu
 
 # Apps
 apps=(
+  owncloud
   atom
   calibre
   dropbox
