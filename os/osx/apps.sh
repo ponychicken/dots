@@ -21,10 +21,9 @@ apps=(
   imageoptim
   iterm2
   karabiner
-  mailbox
   max
-  mplayerx
   owncloud
+  mplayerx
   qlcolorcode
   qlmarkdown
   qlprettypatch
