@@ -13,7 +13,6 @@ apps=(
   dropbox
   evernote
   firefox
-  flash
   flux
   free-ruler  
   google-chrome
