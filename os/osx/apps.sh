@@ -30,9 +30,6 @@ apps=(
   qlstephen
   quicklook-json
   scroll-reverser
-  skype
-  spotify
-  sublime-text3
   the-unarchiver
   tower
   transmission
