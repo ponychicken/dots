@@ -46,7 +46,6 @@ atom=(
   color-picker
   file-icons
   highlight-selected
-  image-view
   inc-dec-value
   language-jade
   linter
