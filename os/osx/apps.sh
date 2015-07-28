@@ -16,18 +16,15 @@ apps=(
   flux
   free-ruler  
   google-chrome
-  hexfiend
-  illustrator
+  hex-fiend
   imagealpha
   imageoptim
-  indesign
   iterm2
   karabiner
   mailbox
   max
   mplayerx
-  onepassword
-  photoshop
+  1password
   qlcolorcode
   qlmarkdown
   qlprettypatch
