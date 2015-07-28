@@ -7,7 +7,7 @@ set -eu
 
 # Apps
 apps=(
-  owncloud
+  1password
   atom
   calibre
   dropbox
@@ -24,7 +24,7 @@ apps=(
   mailbox
   max
   mplayerx
-  1password
+  owncloud
   qlcolorcode
   qlmarkdown
   qlprettypatch
