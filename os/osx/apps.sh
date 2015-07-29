@@ -17,6 +17,7 @@ apps=(
   free-ruler  
   google-chrome
   hex-fiend
+  handbrake
   imagealpha
   imageoptim
   iterm2
