@@ -30,6 +30,7 @@ apps=(
   qlprettypatch
   qlstephen
   quicklook-json
+  slack
   scroll-reverser
   the-unarchiver
   tower
